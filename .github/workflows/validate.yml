@@ -1,0 +1,12 @@
+name: Validate manifest
+
+on: push
+
+jobs:
+  validate:
+    runs-on: ubuntu-18.04
+    container: ghcr.io/vmedcy/mtb-manifest-validator:master
+
+    steps:
+      - name: Validate manifest
+        run: /validate.sh $GITHUB_REPOSITORY $GITHUB_REF
